@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUX & OCTAGON | عالم السيارات الفارهة وUFC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #08090c;
+            --card-bg: rgba(18, 22, 31, 0.9);
+            --gold: #d4af37;
+            --neon-blue: #00f2fe;
+            --primary-red: #ff2e4c;
+            --text-main: #ffffff;
+            --text-sub: #a0a8c0;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-dark); color: var(--text-main); overflow-x: hidden; line-height: 1.6; }
+
+        /* العناصر الطائرة */
+        #floating-container { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 1; overflow: hidden; }
+        .floating-item { position: absolute; bottom: -100px; font-weight: 800; color: var(--gold); opacity: 0.35; animation: floatAnimation 11s linear infinite; user-select: none; }
+        @keyframes floatAnimation {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* الهيدر وشريط البراندات */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: rgba(8, 9, 12, 0.95); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 24px; font-weight: 900; background: linear-gradient(45deg, var(--gold), var(--neon-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        nav a { color: var(--text-sub); text-decoration: none; margin-right: 20px; font-weight: 700; }
+        nav a:hover { color: var(--gold); }
+        .btn-vip { background: linear-gradient(45deg, var(--gold), #aa7c11); color: #000; padding: 8px 20px; border-radius: 20px; border: none; font-weight: 900; cursor: pointer; }
+
+        .brands-bar { background: rgba(255, 255, 255, 0.02); border-bottom: 1px solid var(--border); padding: 15px 8%; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 15px; position: relative; z-index: 2; }
+        .brand-item { color: var(--gold); font-weight: 900; font-size: 16px; letter-spacing: 2px; }
+
+        /* الواجهة الرئيسية */
+        .hero { position: relative; z-index: 2; padding: 70px 8% 40px; text-align: center; }
+        .hero h1 { font-size: 42px; font-weight: 900; margin-bottom: 15px; }
+        .hero h1 span.gold { color: var(--gold); }
+        .hero h1 span.blue { color: var(--neon-blue); }
+
+        /* الأقسام والمعارض */
+        .section-header { padding: 0 8%; margin: 40px 0 20px; position: relative; z-index: 2; }
+        .section-header h2 { font-size: 26px; font-weight: 900; border-right: 4px solid var(--gold); padding-right: 15px; }
+
+        .cards-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 0 8%; position: relative; z-index: 2; }
+        .card-luxury { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 20px; transition: 0.3s; }
+        .card-luxury:hover { border-color: var(--gold); transform: translateY(-5px); }
+        
+        /* الصور والفيديوهات جوه الكروت */
+        .card-img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
+        .media-frame { width: 100%; height: 200px; border-radius: 10px; border: none; margin-bottom: 15px; }
+
+        .card-badge { font-size: 12px; font-weight: 800; color: var(--gold); text-transform: uppercase; }
+        .card-luxury h3 { font-size: 18px; margin: 8px 0; }
+        .card-luxury p { color: var(--text-sub); font-size: 13px; margin-bottom: 15px; }
+        
+        .btn-action { display: inline-block; background: var(--gold); color: #000; font-weight: 900; padding: 8px 18px; border-radius: 8px; text-decoration: none; cursor: pointer; border: none; }
+        .btn-action:hover { background: var(--neon-blue); }
+
+        /* الإعلانات */
+        .ad-banner-vip { width: 84%; margin: 30px auto; padding: 20px; background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(0, 242, 254, 0.05)); border: 1px dashed var(--gold); border-radius: 16px; text-align: center; position: relative; z-index: 2; }
+
+        footer { text-align: center; padding: 30px; margin-top: 50px; border-top: 1px solid var(--border); color: var(--text-sub); }
+    </style>
+</head>
+<body>
+
+    <div id="floating-container"></div>
+
+    <header>
+        <div class="logo">LUX & OCTAGON</div>
+        <nav>
+            <a href="#cars-sec">السيارات</a>
+            <a href="#gucci-sec">جوتشي</a>
+            <a href="#ufc-sec">UFC وحبيب</a>
+        </nav>
+        <button class="btn-vip" onclick="alert('أهلاً بك في العضوية الفاخرة!')">عضوية VIP</button>
+    </header>
+
+    <div class="brands-bar">
+        <span class="brand-item">GUCCI</span>
+        <span class="brand-item">UFC</span>
+        <span class="brand-item">MANSORY</span>
+        <span class="brand-item">FERRARI</span>
+        <span class="brand-item">LAMBORGHINI</span>
+    </div>
+
+    <section class="hero">
+        <h1>عالم <span class="gold">الرفاهية</span>، <span class="blue">السيارات السوبر</span> و <span style="color:var(--primary-red)">UFC</span></h1>
+        <p>استعرض أقوى السيارات المعدلة، أسطول الفخامة، وتغطيات بطل UFC حبيب نورماجوميدوف.</p>
+    </section>
+
+    <!-- مساحة الإعلانات -->
+    <div class="ad-banner-vip">
+        <span style="color:var(--gold); font-size:11px; font-weight:900;">مساحة إعلانية مدفوعة</span>
+        <h3>احجز موقعك الإعلاني هنا أمام عشاق السيارات والرياضة</h3>
+        <button class="btn-action" style="margin-top:10px;" onclick="alert('تواصل معنا للرعاية الإعلانية!')">طلب إعلان</button>
+    </div>
+
+    <!-- قسم السيارات -->
+    <div class="section-header" id="cars-sec">
+        <h2>🏎️ قسم الوحوش المعدلة والأسطول الفاخر</h2>
+    </div>
+
+    <div class="cards-container">
+        <!-- كارت منصوري والوحوش -->
+        <div class="card-luxury">
+            <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=600" class="card-img" alt="Mansory Car">
+            <div class="card-badge">Mansory Tuning</div>
+            <h3>الوحوش المعدلة ولامبورجيني</h3>
+            <p>شاهد أحدث تعديلات ألياف الكربون والمحركات الخارقة لسيارات منصوري ولامبورجيني.</p>
+            <button class="btn-action" onclick="window.open('https://www.mansory.com', '_blank')">استكشف الوحوش المعدلة 🔗</button>
+        </div>
+
+        <!-- كارت أسطول الفخامة -->
+        <div class="card-luxury">
+            <img src="https://images.unsplash.com/photo-1631295868223-63265b40d9e4?w=600" class="card-img" alt="Rolls Royce">
+            <div class="card-badge">Luxury Fleet</div>
+            <h3>عرض الأسطول الملكي (Rolls-Royce)</h3>
+            <p>استعراض أفخم وأغلى السيارات الفارهة في العالم وتصاميمها الداخلية.</p>
+            <button class="btn-action" onclick="window.open('https://www.rolls-roycemotorcars.com', '_blank')">عرض الأسطول الملكي 🔗</button>
+        </div>
+
+        <!-- كارت فيراري -->
+        <div class="card-luxury">
+            <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=600" class="card-img" alt="Ferrari">
+            <div class="card-badge">Ferrari Speed</div>
+            <h3>سيارات فيراري الرياضية</h3>
+            <p>أسرع طرازات الفيراري واختبارات السرعة الحقيقية على الحلبات.</p>
+            <button class="btn-action" onclick="window.open('https://www.ferrari.com', '_blank')">تصفح أسرع السيارات 🔗</button>
+        </div>
+    </div>
+
+    <!-- قسم جوتشي والرفاهية -->
+    <div class="section-header" id="gucci-sec">
+        <h2>✨ عالم جوتشي GUCCI والموضة الفاخرة</h2>
+    </div>
+
+    <div class="cards-container">
+        <div class="card-luxury">
+            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600" class="card-img" alt="Gucci Fashion">
+            <div class="card-badge">Gucci Special</div>
+            <h3>تصفح مجموعات Gucci الحصرية</h3>
+            <p>أفخم الأزياء والإكسسوارات المصممة لأصحاب الذوق الرفيع وعشاق السيارات.</p>
+            <button class="btn-action" onclick="window.open('https://www.gucci.com', '_blank')">تصفح مجموعات Gucci 🔗</button>
+        </div>
+    </div>
+
+    <!-- قسم UFC وحبيب نورماجوميدوف -->
+    <div class="section-header" id="ufc-sec">
+        <h2>🥊 UFC والأسطورة حبيب نورماجوميدوف (Khabib)</h2>
+    </div>
+
+    <div class="cards-container">
+        <div class="card-luxury" style="grid-column: 1 / -1;">
+            <!-- فيديو حقيقي لشاشات UFC وحبيب -->
+            <iframe class="media-frame" style="height:350px;" src="https://www.youtube.com/embed/videoseries?list=PL9mT-AcBaf3O8qW2qI2O3xAt2I2gWv_p0" allowfullscreen></iframe>
+            <div class="card-badge">UFC Champions</div>
+            <h3>تغطيات نزالات UFC والأسطورة حبيب</h3>
+            <p>شاهد القاضيات والنزالات التاريخية للبطل حبيب نورماجوميدوف وأبطال UFC المباشر.</p>
+            <button class="btn-action" onclick="window.open('https://www.ufc.com', '_blank')">زيارة موقع UFC الرسمي 🔗</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 LUX & OCTAGON - جميع الحقوق محفوظة للمنصة العالمية</p>
+    </footer>
+
+    <script>
+        // أنيميشن العناصر الطائرة
+        const container = document.getElementById('floating-container');
+        const items = ['✈️', '🏎️', '🥊', 'GUCCI', 'RollsRoyce', 'Ferrari', 'Lamborghini', '#UFC', '#Khabib'];
+
+        function createFloatingItem() {
+            const el = document.createElement('div');
+            el.classList.add('floating-item');
+            el.innerText = items[Math.floor(Math.random() * items.length)];
+            el.style.left = (Math.random() * 85 + 5) + 'vw';
+            el.style.animationDuration = (Math.random() * 5 + 7) + 's';
+            el.style.fontSize = (Math.random() * 10 + 16) + 'px';
+            container.appendChild(el);
+            setTimeout(() => { el.remove(); }, 12000);
+        }
+        setInterval(createFloatingItem, 600);
+    </script>
+</body>
+</html>
